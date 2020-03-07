@@ -1,12 +1,25 @@
 const axios = require('axios');
 const money = require('money');
 
+//Importing the current conversion rates of various currencies to euro and bitcoin.
 const RATES_URL = 'https://api.exchangeratesapi.io/latest';
 const BLOCKCHAIN_URL = 'https://blockchain.info/ticker';
 const CURRENCY_BITCOIN = 'BTC';
 
+
+/**
+ * Testing if one of the currencies is BTC (returns a bool)
+ * @param  {String}  from
+ * @param  {String}  to
+ * @return {Boolean}      true if either parameter is 'BTC'
+ */
 const isAnyBTC = (from, to) => [from, to].includes(CURRENCY_BITCOIN);
 
+/**
+ * Throws arguments into converter.
+ * @param  {amount: int, from: String, to: String}  opts amount of currency, currency to be converted, currency to convert to
+ * @return {function}  returns money.convert()
+ */
 module.exports = async opts => {
   const {amount = 1, from = 'USD', to = CURRENCY_BITCOIN} = opts;
   const promises = [];
@@ -16,6 +29,7 @@ module.exports = async opts => {
 
   if (anyBTC) {
     base = from === CURRENCY_BITCOIN ? to : from;
+    //browsing the BTC rate page:
     promises.push(axios(BLOCKCHAIN_URL));
   }
 
@@ -50,6 +64,11 @@ module.exports = async opts => {
       });
     }
 
+    /**
+     * [money.convert description]
+     *  @param  {amount: int, conversionOpts:{from: String, to: String} }  opts amount of currency, {currency to be converted, currency to convert to}
+     *  @return {converted_amount: int}  Converted amount of money.
+     */
     return money.convert(amount, conversionOpts);
   } catch (error) {
     throw new Error (
