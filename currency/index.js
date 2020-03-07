@@ -33,7 +33,10 @@ module.exports = async opts => {
     promises.push(axios(BLOCKCHAIN_URL));
   }
 
+//Creating the URL for a desired currency
+//URL ultimately looks like : https://api.exchangeratesapi.io/latest?base=<BaseCurrency>
   promises.unshift(axios(`${RATES_URL}?base=${base}`));
+
 
   try {
     const responses = await Promise.all(promises);
@@ -65,7 +68,7 @@ module.exports = async opts => {
     }
 
     /**
-     * [money.convert description]
+     * Converts an amount of currency from one to another
      *  @param  {amount: int, conversionOpts:{from: String, to: String} }  opts amount of currency, {currency to be converted, currency to convert to}
      *  @return {converted_amount: int}  Converted amount of money.
      */

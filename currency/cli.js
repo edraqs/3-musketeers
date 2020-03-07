@@ -20,6 +20,14 @@ function help () {
 
 const spinner = ora('Fetching exchange data..');
 
+/**
+ * The main function,
+ * displays the converted amount of money from one to another currency
+ * @param  {amount: float, from: String, to: String} opts from and to are the two currencies names
+ * NAMES MUST BE WRITTEN FOLLOWING THE ISO 4217 NORM.
+ * The list of available currencies can be found in the README.md file.
+ * @return {void}    Displays the result in the console.
+ */
 async function start (opts) {
   try {
     const {amount, from, to} = opts;
@@ -41,6 +49,7 @@ if (argv.indexOf('--help') !== - 1) {
 
 spinner.start();
 
+//By default the program converts 1 USD to BTC
 const opts = {
   'amount': argv[0] || 1,
   'from': (argv[1] || 'USD').toUpperCase(),
