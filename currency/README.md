@@ -17,7 +17,8 @@ When launching cli.js, add the 3 parameters in order:
 Here is an example:
 ```sh
 ❯ node cli.js 5.5 usd eur
-```
+```  
+
     5.5 US dollars converted to euros  
     **WARNING:** Currency names must follow the ISO 4217 norm.  
     Here is a table of all available currency for this application:  
