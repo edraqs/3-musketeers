@@ -97,16 +97,16 @@ test('convert without arguments', async () => {
 });
 
 test('convert with amount only', async () => {
-    var amount = 1
+    var amount = 2
     result = await currency({amount})
     console.log("convert amount only")
     console.log(`${amount} = ${result}`)
 });
 
 test('convert with amount and (from) currency only', async () => {
-    var amount = 1
-    var from = 'USD'
-    const opts = {amount, from}
+    var amount = 15
+    var from = 'EUR'
+    const opts = {amount, from }
     result = await currency(opts)
     console.log("amount and from only")
     console.log(`${amount} ${from} = ${result} `)

@@ -31,6 +31,7 @@ const spinner = ora('Fetching exchange data..');
 async function start (opts) {
   try {
     const {amount, from, to} = opts;
+
     const result = await currency(opts);
 
     spinner.stop();

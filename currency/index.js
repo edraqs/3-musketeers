@@ -6,7 +6,6 @@ const RATES_URL = 'https://api.exchangeratesapi.io/latest';
 const BLOCKCHAIN_URL = 'https://blockchain.info/ticker';
 const CURRENCY_BITCOIN = 'BTC';
 
-
 /**
  * Testing if one of the currencies is BTC (returns a bool)
  * @param  {String}  from
