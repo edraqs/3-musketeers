@@ -41,55 +41,83 @@ beforeEach(() => {
 const currency = require('./');
 
 test('convert 1 USD to EUR', async () => {
-  result = await currency(1,"usd","eur")
+    var amount = 1
+    var from = 'USD'
+    var to = 'EUR'
+    const opts = {amount, from, to}
+  result = await currency(opts)
   console.log("convert 1 USD to EUR")
-  console.log(`${1} ${"usd"} = ${result} ${"eur"}`)
+  console.log(`${amount} ${from} = ${result} ${to}`)
 });
 
 test('convert 1 USD to USD', async () => {
-    result = await currency(1,"usd","usd")
+    var amount = 1
+    var from = 'USD'
+    var to = 'USD'
+    const opts = {amount, from, to}
+    result = await currency(opts)
     console.log("convert 1 USD to USD")
-    console.log(`${1} ${"usd"} = ${result} ${"usd"}`)
+    console.log(`${amount} ${from} = ${result} ${to}`)
 });
 
 test('convert 1 EUR to USD', async () => {
-    result = await currency(1,"eur","usd")
+    var amount = 1
+    var from = 'EUR'
+    var to = 'USD'
+    const opts = {amount, from, to}
+    result = await currency(opts)
     console.log("convert 1 EUR to USD")
-    console.log(`${1} ${"eur"} = ${result} ${"usd"}`)
+    console.log(`${amount} ${from} = ${result} ${to}`)
 });
 
 test('convert 1 BTC to USD', async () => {
-    result = await currency(1,"btc","usd")
+    var amount = 1
+    var from = 'BTC'
+    var to = 'USD'
+    const opts = {amount, from, to}
+    result = await currency(opts)
     console.log("convert 1 BTC to USD")
-    console.log(`${1} ${"btc"} = ${result} ${"usd"}`)
+    console.log(`${amount} ${from} = ${result} ${to}`)
 });
 
 test('convert 1 BTC to EUR', async () => {
-    result = await currency(1,"btc","eur")
-    console.log("convert 1 USD to EUR")
-    console.log(`${1} ${"usd"} = ${result} ${"eur"}`)
+    var amount = 1
+    var from = 'BTC'
+    var to = 'EUR'
+    const opts = {amount, from, to}
+    result = await currency(opts)
+    console.log("convert 1 BTC to EUR")
+    console.log(`${amount} ${from} = ${result} ${to}`)
 });
 
-/*test('convert without arguments', async () => {
-    result = await currency
+test('convert without arguments', async () => {
+    result = await currency({})
     console.log("No arguments")
     console.log(`result = ${result}`)
-});*/
+});
 
 test('convert with amount only', async () => {
-    result = await currency(15)
-    console.log("convert 1 USD to USD")
-    console.log(`${15} ${"none"} = ${result} ${"none"}`)
+    var amount = 1
+    result = await currency({amount})
+    console.log("convert amount only")
+    console.log(`${amount} = ${result}`)
 });
 
 test('convert with amount and (from) currency only', async () => {
-    result = await currency(15,"usd")
-    console.log("convert 1 USD to USD")
-    console.log(`${15} ${"usd"} = ${result}`)
+    var amount = 1
+    var from = 'USD'
+    const opts = {amount, from}
+    result = await currency(opts)
+    console.log("amount and from only")
+    console.log(`${amount} ${from} = ${result} `)
 });
 
 test('convert without a correct `from` or `to` currency value', async () => {
-    result = await currency(1,"yes","no")
+    var amount = 1
+    var from = 'yes'
+    var to = 'yes'
+    const opts = {amount, from, to}
+    result = await currency(opts)
     console.log("convert 1 USD to USD")
-    console.log(`${1} ${"yes"} = ${result} ${"no"}`)
+    console.log(`${amount} ${from} = ${result} ${to}`)
 });
