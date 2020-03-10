@@ -18,6 +18,7 @@ Here is an example:
 ```sh
 ❯ node cli.js 5.5 usd eur
 ```  
+
 5.5 US dollars converted to euros  
 
 **WARNING:** Currency names must follow the ISO 4217 norm.  

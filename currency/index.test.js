@@ -38,39 +38,40 @@ beforeEach(() => {
       }
     });
 });
+const currency = require('./');
 
 test('convert 1 USD to EUR', async () => {
-  throw new Error('test not yet defined... remove the throw and write your test here');
+  await currency(1,"usd","eur")
 });
 
 test('convert 1 USD to USD', async () => {
-  throw new Error('test not yet defined... remove the throw and write your test here');
+    await currency(1,"usd","usd")
 });
 
 test('convert 1 EUR to USD', async () => {
-  throw new Error('test not yet defined... remove the throw and write your test here');
+    await currency(1,"eur","usd")
 });
 
 test('convert 1 BTC to USD', async () => {
-  throw new Error('test not yet defined... remove the throw and write your test here');
+    await currency(1,"btc","usd")
 });
 
 test('convert 1 BTC to EUR', async () => {
-  throw new Error('test not yet defined... remove the throw and write your test here');
+    await currency(1,"btc","eur")
 });
 
 test('convert without arguments', async () => {
-  throw new Error('test not yet defined... remove the throw and write your test here');
+    await currency
 });
 
 test('convert with amount only', async () => {
-  throw new Error('test not yet defined... remove the throw and write your test here');
+    await currency(15)
 });
 
 test('convert with amount and (from) currency only', async () => {
-  throw new Error('test not yet defined... remove the throw and write your test here');
+    await currency(15,"usd")
 });
 
 test('convert without a correct `from` or `to` currency value', async () => {
-  throw new Error('test not yet defined... remove the throw and write your test here');
+    await currency(1,"yes","no")
 });

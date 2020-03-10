@@ -40,6 +40,7 @@ async function start (opts) {
     console.log(error);
     process.exit(1);
   }
+
 }
 
 if (argv.indexOf('--help') !== - 1) {
