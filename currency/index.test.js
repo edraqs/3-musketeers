@@ -41,37 +41,55 @@ beforeEach(() => {
 const currency = require('./');
 
 test('convert 1 USD to EUR', async () => {
-  await currency(1,"usd","eur")
+  result = await currency(1,"usd","eur")
+  console.log("convert 1 USD to EUR")
+  console.log(`${1} ${"usd"} = ${result} ${"eur"}`)
 });
 
 test('convert 1 USD to USD', async () => {
-    await currency(1,"usd","usd")
+    result = await currency(1,"usd","usd")
+    console.log("convert 1 USD to USD")
+    console.log(`${1} ${"usd"} = ${result} ${"usd"}`)
 });
 
 test('convert 1 EUR to USD', async () => {
-    await currency(1,"eur","usd")
+    result = await currency(1,"eur","usd")
+    console.log("convert 1 EUR to USD")
+    console.log(`${1} ${"eur"} = ${result} ${"usd"}`)
 });
 
 test('convert 1 BTC to USD', async () => {
-    await currency(1,"btc","usd")
+    result = await currency(1,"btc","usd")
+    console.log("convert 1 BTC to USD")
+    console.log(`${1} ${"btc"} = ${result} ${"usd"}`)
 });
 
 test('convert 1 BTC to EUR', async () => {
-    await currency(1,"btc","eur")
+    result = await currency(1,"btc","eur")
+    console.log("convert 1 USD to EUR")
+    console.log(`${1} ${"usd"} = ${result} ${"eur"}`)
 });
 
-test('convert without arguments', async () => {
-    await currency
-});
+/*test('convert without arguments', async () => {
+    result = await currency
+    console.log("No arguments")
+    console.log(`result = ${result}`)
+});*/
 
 test('convert with amount only', async () => {
-    await currency(15)
+    result = await currency(15)
+    console.log("convert 1 USD to USD")
+    console.log(`${15} ${"none"} = ${result} ${"none"}`)
 });
 
 test('convert with amount and (from) currency only', async () => {
-    await currency(15,"usd")
+    result = await currency(15,"usd")
+    console.log("convert 1 USD to USD")
+    console.log(`${15} ${"usd"} = ${result}`)
 });
 
 test('convert without a correct `from` or `to` currency value', async () => {
-    await currency(1,"yes","no")
+    result = await currency(1,"yes","no")
+    console.log("convert 1 USD to USD")
+    console.log(`${1} ${"yes"} = ${result} ${"no"}`)
 });
